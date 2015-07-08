@@ -641,9 +641,7 @@ class MyClass(GeneratedClass):
                                                 <bitmap>media/images/box/box-python-script.png</bitmap>
                                                 <script language="4">
                                                     <content>
-                                                        <![CDATA[GOOGLE_API_KEY = "YOUR_API_KEY"
-
-class MyClass(GeneratedClass):
+                                                        <![CDATA[class MyClass(GeneratedClass):
     def __init__(self):
         GeneratedClass.__init__(self)
 
@@ -667,7 +665,7 @@ class MyClass(GeneratedClass):
         try:
             timeout = int(self.getParameter("Timeout"))
 
-            q = {"output": "json", "lang": "ja-JP", "key": GOOGLE_API_KEY}
+            q = {"output": "json", "lang": "ja-JP", "key": self.getParameter("GOOGLE_API_KEY")}
 
             url = "http://www.google.com/speech-api/v2/recognize?%s" % (urllib.urlencode(q))
 
@@ -724,6 +722,7 @@ class MyClass(GeneratedClass):
                                                 <Output name="onStopped" type="3" type_size="1" nature="1" inner="0" tooltip="ボックス動作の終了時に信号を送る。" id="4" />
                                                 <Output name="onFailed" type="3" type_size="1" nature="1" inner="0" tooltip="" id="5" />
                                                 <Parameter name="Timeout" inherits_from_parent="0" content_type="1" value="10" default_value="10" min="1" max="3600" tooltip="" id="6" />
+                                                <Parameter name="GOOGLE_API_KEY" inherits_from_parent="0" content_type="3" value="YOUR_API_KEY" default_value="YOUR_API_KEY" custom_choice="0" tooltip="" id="7" />
                                             </Box>
                                             <Link inputowner="5" indexofinput="2" outputowner="3" indexofoutput="4" />
                                             <Link inputowner="3" indexofinput="2" outputowner="0" indexofoutput="2" />
