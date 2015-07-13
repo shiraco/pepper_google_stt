@@ -490,17 +490,17 @@ class MyClass(GeneratedClass):
 
     def onInput_onStart(self, p):
         import re
-        name = re.sub(r'[です|だよ]', '', p)
+        name = re.sub(r'です', '', p)
 
         self.logger.info(name)
 
         memory = ALProxy("ALMemory")
         memory.insertData("pepper_google_stt_username", name)
 
-        if name is not None:
-            text = "こんにちは" + name + "さん"
-        else:
+        if name is None or name == "":
             text = "今日はいい天気ですね"
+        else:
+            text = "こんにちは" + name + "さん"
 
         self.onStopped(text)
 
